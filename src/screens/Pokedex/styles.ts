@@ -1,9 +1,5 @@
 import styled from "styled-components/native"
 
-type TypeProps = {
-  typeColor: string
-}
-
 export const Wrapper = styled.ScrollView``
 
 export const Container = styled.View`
@@ -11,6 +7,11 @@ export const Container = styled.View`
 `
 
 export const TopArea = styled.View`
+  justify-content: center;
+  gap: 16px;
+`
+
+export const SearchView = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -18,19 +19,20 @@ export const TopArea = styled.View`
 `
 
 export const SearchInput = styled.TextInput`
+  width: 80%;
   padding: 10px 20px;
-  background-color: rgb(183 189 193);
+  background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 120px;
+  border-radius: 20px;
   font-size: 16px;
-  color: #7a7d80;
+  color: #000;
 `
 
 export const SearchButton = styled.TouchableOpacity`
-  background-color: rgb(183 189 193);
+  background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
-  border-radius: 50px;
+  border-radius: 20px;
 `
 
 export const SearchText = styled.Text`

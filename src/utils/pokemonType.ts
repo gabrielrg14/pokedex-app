@@ -148,8 +148,8 @@ export function getPropsByPokemonType(type: string) {
 
     default:
       return {
-        background: ["#9099A1", "#9099A1"],
-        backgroundColor: "#9099A1",
+        background: ["#000", "#000"],
+        backgroundColor: "#000",
         color: "#FFF",
         icon: icons.all,
       }
