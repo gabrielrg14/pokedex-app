@@ -3,8 +3,7 @@ import { StackScreenProps } from "@react-navigation/stack"
 import { SvgCss } from "react-native-svg"
 import RNPickerSelect from "react-native-picker-select"
 
-import { ParamList } from "../../@types"
-import { Pokemon } from "../../@types"
+import { ParamList, Pokemon } from "../../@types"
 import { PokedexService } from "../../services"
 import { getPropsByPokemonType } from "../../utils"
 

@@ -1,46 +1,50 @@
 import { StatusBar } from "expo-status-bar"
 
 import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
-import { createDrawerNavigator } from "@react-navigation/drawer"
+import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack"
+import { createDrawerNavigator, DrawerNavigationOptions } from "@react-navigation/drawer"
 
 import { ParamList } from "../@types"
 import { About, Pokedex, Pokemon } from "../screens"
 
 import Header from "../components/Header"
+import HeaderRight from "../components/HeaderRight"
 import Footer from "../components/Footer"
 
 const Stack = createStackNavigator<ParamList>()
 const Drawer = createDrawerNavigator<ParamList>()
 
 const App = () => {
+  const headerOptions: StackNavigationOptions & DrawerNavigationOptions = {
+    headerTintColor: "#FFF",
+    headerStyle: {
+      backgroundColor: "#212121",
+      height: 100,
+    },
+    headerTitleContainerStyle: { paddingLeft: 15 },
+    headerTitleAlign: "center",
+    headerRightContainerStyle: { paddingRight: 15 },
+    headerTitle: () => <Header />,
+    headerRight: () => <HeaderRight />,
+  }
+
   const DrawerNavigator = () => (
     <Drawer.Navigator
       screenOptions={{
+        ...headerOptions,
         drawerActiveTintColor: "#FFF",
         drawerActiveBackgroundColor: "#212121",
-        headerTintColor: "#FFF",
-        headerStyle: { backgroundColor: "#212121" },
-        headerTitleAlign: "center",
-        headerTitle: () => <Header />,
       }}
     >
       <Drawer.Screen name="Pokedex" component={Pokedex} options={{ title: "Pokédex" }} />
-      <Drawer.Screen name="About" component={About} />
+      <Drawer.Screen name="About" component={About} options={{ headerRight: () => null }} />
     </Drawer.Navigator>
   )
 
   return (
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="#212121" />
-      <Stack.Navigator
-        screenOptions={{
-          headerTintColor: "#FFF",
-          headerStyle: { backgroundColor: "#212121" },
-          headerTitleAlign: "center",
-          headerTitle: () => <Header />,
-        }}
-      >
+      <Stack.Navigator screenOptions={{ ...headerOptions }}>
         <Stack.Screen
           name="DrawerNavigator"
           component={DrawerNavigator}

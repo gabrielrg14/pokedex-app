@@ -4,6 +4,7 @@ import { StackNavigationProp } from "@react-navigation/stack"
 
 import { ParamList, Pokemon } from "../../@types"
 import { PokedexService } from "../../services"
+import { useStore } from "../../store"
 import { formatPokemonName } from "../../utils"
 
 import PokemonNumber from "../PokemonNumber"
@@ -17,7 +18,7 @@ type CardProps = {
 
 const Card = ({ pokemon }: CardProps) => {
   const [pokemonData, setPokemonData] = useState({} as Pokemon)
-
+  const { sprite } = useStore()
   const navigation = useNavigation<StackNavigationProp<ParamList, "Pokedex">>()
 
   const getPokemonData = useCallback(async () => {
@@ -33,9 +34,9 @@ const Card = ({ pokemon }: CardProps) => {
       onPress={() => navigation.navigate("Pokemon", pokemonData)}
       aria-label={pokemon.name}
     >
-      {pokemonData?.sprites?.other["official-artwork"]?.["front_default"] && (
+      {pokemonData?.sprites?.other["official-artwork"]?.[sprite] && (
         <S.PokemonImage
-          source={{ uri: pokemonData?.sprites.other["official-artwork"]["front_default"] }}
+          source={{ uri: pokemonData?.sprites.other["official-artwork"][sprite] }}
           width={156}
           height={156}
           alt={pokemon.name}

@@ -1,6 +1,7 @@
 import { StackScreenProps } from "@react-navigation/stack"
 
 import { ParamList, Pokemon as IPokemon } from "../../@types"
+import { useStore } from "../../store"
 import { getPropsByPokemonType, formatPokemonName } from "../../utils"
 
 import NotFound from "../../components/NotFound"
@@ -14,6 +15,8 @@ export const Pokemon = ({ route }: StackScreenProps<ParamList, "Pokemon">) => {
   if (!route.params) return <NotFound />
 
   const pokemon: IPokemon = route.params
+
+  const { sprite } = useStore()
 
   let background = getPropsByPokemonType(pokemon.types[0].type.name).background
   if (pokemon.types.length >= 2) {
@@ -46,9 +49,9 @@ export const Pokemon = ({ route }: StackScreenProps<ParamList, "Pokemon">) => {
           </S.PokemonTitle>
 
           <S.ImageView>
-            {pokemon?.sprites?.other["official-artwork"]?.["front_default"] && (
+            {pokemon?.sprites?.other["official-artwork"]?.[sprite] && (
               <S.PokemonImage
-                source={{ uri: pokemon?.sprites.other["official-artwork"]["front_default"] }}
+                source={{ uri: pokemon?.sprites.other["official-artwork"][sprite] }}
                 width={256}
                 height={256}
                 alt={pokemon?.name}
