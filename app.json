@@ -4,7 +4,7 @@
     "slug": "pokedex-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon-512.png",
+    "icon": "./assets/icon-192.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/icon-512.png",
@@ -17,12 +17,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon-512.png",
+        "foregroundImage": "./assets/icon-192.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.gabrielrg14.pokedexapp"
     },
     "web": {
-      "favicon": "./assets/icon-512.png"
+      "favicon": "./assets/icon-192.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0c4220c4-85aa-4135-ba26-27b1ac68aba3"
+      }
     }
   }
 }

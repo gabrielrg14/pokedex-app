@@ -16,7 +16,7 @@ const NotFound = () => {
 
       <S.TextNotHere>Unfortunately the Pokémon you are looking for is not here.</S.TextNotHere>
 
-      <S.PsyduckImage source={require("../../../assets/psyduck.png")} alt="Psyduck confused" />
+      <S.PsyduckImage source={require("../../../assets/psyduck.jpg")} alt="Psyduck confused" />
 
       <Button
         text="Go to Pokédex"
