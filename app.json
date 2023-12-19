@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "pokedex-app",
+    "name": "Pokédex",
     "slug": "pokedex-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon-192.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icon-512.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,18 +17,21 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon-192.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.gabrielrg14.pokedexapp"
-    },
-    "web": {
-      "favicon": "./assets/icon-192.png"
     },
     "extra": {
       "eas": {
         "projectId": "0c4220c4-85aa-4135-ba26-27b1ac68aba3"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/0c4220c4-85aa-4135-ba26-27b1ac68aba3"
     }
   }
 }

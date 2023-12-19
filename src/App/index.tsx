@@ -1,57 +1,28 @@
+import { useEffect } from "react"
+import { NavigationContainer } from "@react-navigation/native"
 import { StatusBar } from "expo-status-bar"
 
-import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack"
-import { createDrawerNavigator, DrawerNavigationOptions } from "@react-navigation/drawer"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { Sprite, STORAGE_KEY, useStore } from "../store"
 
-import { ParamList } from "../@types"
-import { About, Pokedex, Pokemon } from "../screens"
-
-import Header from "../components/Header"
-import HeaderRight from "../components/HeaderRight"
+import Routes from "../routes"
 import Footer from "../components/Footer"
 
-const Stack = createStackNavigator<ParamList>()
-const Drawer = createDrawerNavigator<ParamList>()
-
 const App = () => {
-  const headerOptions: StackNavigationOptions & DrawerNavigationOptions = {
-    headerTintColor: "#FFF",
-    headerStyle: {
-      backgroundColor: "#212121",
-      height: 100,
-    },
-    headerTitleContainerStyle: { paddingLeft: 15 },
-    headerTitleAlign: "center",
-    headerRightContainerStyle: { paddingRight: 15 },
-    headerTitle: () => <Header />,
-    headerRight: () => <HeaderRight />,
-  }
+  const { setSprite } = useStore()
 
-  const DrawerNavigator = () => (
-    <Drawer.Navigator
-      screenOptions={{
-        ...headerOptions,
-        drawerActiveTintColor: "#FFF",
-        drawerActiveBackgroundColor: "#212121",
-      }}
-    >
-      <Drawer.Screen name="Pokedex" component={Pokedex} options={{ title: "Pokédex" }} />
-      <Drawer.Screen name="About" component={About} options={{ headerRight: () => null }} />
-    </Drawer.Navigator>
-  )
+  useEffect(() => {
+    const setSpriteStorage = async () => {
+      const spriteStorage = await AsyncStorage.getItem(STORAGE_KEY)
+      if (spriteStorage) setSprite(spriteStorage as Sprite)
+    }
+    setSpriteStorage()
+  }, [setSprite])
 
   return (
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="#212121" />
-      <Stack.Navigator screenOptions={{ ...headerOptions }}>
-        <Stack.Screen
-          name="DrawerNavigator"
-          component={DrawerNavigator}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="Pokemon" component={Pokemon} />
-      </Stack.Navigator>
+      <Routes />
       <Footer />
     </NavigationContainer>
   )
