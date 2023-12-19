@@ -10,3 +10,4 @@
 - [TypeScript](https://www.typescriptlang.org/)
 - [Styled Components](https://styled-components.com/)
 - [Zustand](https://zustand-demo.pmnd.rs/)
+- [Async Storage](https://react-native-async-storage.github.io/async-storage/)
