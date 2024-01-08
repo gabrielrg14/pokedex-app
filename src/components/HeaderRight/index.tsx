@@ -7,6 +7,7 @@ const HeaderRight = () => {
 
   return (
     <S.Icon
+      testID="spriteIcon"
       name="auto-awesome"
       size={28}
       color={sprite === "front_default" ? "#FFF" : "#fbc418"}

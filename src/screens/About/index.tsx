@@ -11,8 +11,9 @@ export const About = ({}: StackScreenProps<ParamList, "About">) => {
 
       <S.Description>
         This project was developed with the aim of putting into practice the knowledge acquired in
-        React Native, React Navigation, Expo, TypeScript, Styled Components, Zustand and Async
-        Storage through a fun theme that is one of the creator&apos;s passions: Pokémon!
+        React Native, React Navigation, Expo, TypeScript, Styled Components, Async Storage, Zustand,
+        Jest and React Native Testing Library through a fun theme that is one of the creator&apos;s
+        passions: Pokémon!
       </S.Description>
 
       <S.Description>

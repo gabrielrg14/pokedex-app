@@ -31,11 +31,13 @@ const Card = ({ pokemon }: CardProps) => {
 
   return (
     <S.CardLink
+      accessibilityRole="button"
       onPress={() => navigation.navigate("Pokemon", pokemonData)}
       aria-label={pokemon.name}
     >
       {pokemonData?.sprites?.other["official-artwork"]?.[sprite] && (
         <S.PokemonImage
+          testID="pokemonImage"
           source={{ uri: pokemonData?.sprites.other["official-artwork"][sprite] }}
           width={156}
           height={156}

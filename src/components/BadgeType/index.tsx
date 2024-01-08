@@ -13,8 +13,9 @@ const BadgeType = ({ type }: BadgeTypeProps) => {
 
   return (
     <S.Wrapper>
-      <SvgCss xml={typeProps.icon} width="32" height="32" />
+      <SvgCss testID={`${type}-icon`} xml={typeProps.icon} width="32" height="32" />
       <S.GradientView
+        testID="gradientView"
         colors={typeProps.background}
         locations={[0.5, 0.5]}
         start={{ x: 0, y: 0 }}

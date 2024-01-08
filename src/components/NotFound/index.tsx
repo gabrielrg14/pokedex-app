@@ -13,11 +13,12 @@ const NotFound = () => {
   return (
     <S.Wrapper>
       <S.TextNotFound>Pokémon not found!</S.TextNotFound>
-
       <S.TextNotHere>Unfortunately the Pokémon you are looking for is not here.</S.TextNotHere>
-
-      <S.PsyduckImage source={require("../../../assets/psyduck.jpg")} alt="Psyduck confused" />
-
+      <S.PsyduckImage
+        testID="psyduckImage"
+        source={require("../../../assets/psyduck.jpg")}
+        alt="Psyduck confused"
+      />
       <Button
         text="Go to Pokédex"
         onPress={() => navigation.navigate("Pokedex")}

@@ -8,7 +8,7 @@ type ButtonProps = {
 
 const Button = ({ text, ...rest }: TouchableOpacityProps & ButtonProps) => {
   return (
-    <S.Button {...rest}>
+    <S.Button accessibilityRole="button" {...rest}>
       <S.Text>{text}</S.Text>
     </S.Button>
   )

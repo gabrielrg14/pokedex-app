@@ -9,5 +9,7 @@
 - [Expo](https://expo.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Styled Components](https://styled-components.com/)
-- [Zustand](https://zustand-demo.pmnd.rs/)
 - [Async Storage](https://react-native-async-storage.github.io/async-storage/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [Jest](https://jestjs.io/)
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
