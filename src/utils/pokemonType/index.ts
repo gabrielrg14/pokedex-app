@@ -1,4 +1,4 @@
-import icons from "../../assets/types"
+import icons from "../../../assets/types"
 
 export function getPropsByPokemonType(type: string) {
   switch (type) {
