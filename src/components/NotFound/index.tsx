@@ -2,12 +2,11 @@ import { useNavigation } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
 
 import { ParamList } from "../../@types"
-
-import Button from "../../components/Button"
+import { Button } from "../Button"
 
 import * as S from "./styles"
 
-const NotFound = () => {
+export const NotFound = () => {
   const navigation = useNavigation<StackNavigationProp<ParamList>>()
 
   return (
@@ -27,5 +26,3 @@ const NotFound = () => {
     </S.Wrapper>
   )
 }
-
-export default NotFound

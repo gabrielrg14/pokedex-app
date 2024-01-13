@@ -1,13 +1,9 @@
 import { StackScreenProps } from "@react-navigation/stack"
 
 import { ParamList, Pokemon as IPokemon } from "../../@types"
-import { useStore } from "../../store"
+import { NotFound, PokemonNumber, RowTypes, StatBar } from "../../components"
 import { getPropsByPokemonType, formatPokemonName } from "../../utils"
-
-import NotFound from "../../components/NotFound"
-import PokemonNumber from "../../components/PokemonNumber"
-import RowTypes from "../../components/RowTypes"
-import StatBar from "../../components/StatBar"
+import { useStore } from "../../store"
 
 import * as S from "./styles"
 

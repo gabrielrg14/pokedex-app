@@ -1,14 +1,13 @@
-import { Type } from "../../@types"
-
-import BadgeType from "../BadgeType"
+import { PokemonType } from "../../@types"
+import { BadgeType } from "../BadgeType"
 
 import * as S from "./styles"
 
 type RowTypesProps = {
-  types?: Type[]
+  types?: PokemonType[]
 }
 
-const RowTypes = ({ types }: RowTypesProps) => {
+export const RowTypes = ({ types }: RowTypesProps) => {
   return (
     <S.Wrapper>
       {types?.map((item, index) => (
@@ -19,5 +18,3 @@ const RowTypes = ({ types }: RowTypesProps) => {
     </S.Wrapper>
   )
 }
-
-export default RowTypes

@@ -6,10 +6,8 @@ import {
 import { createDrawerNavigator, DrawerNavigationOptions } from "@react-navigation/drawer"
 
 import { ParamList } from "../@types"
+import { Header, HeaderRight } from "../components"
 import { About, Pokedex, Pokemon } from "../screens"
-
-import Header from "../components/Header"
-import HeaderRight from "../components/HeaderRight"
 
 const Stack = createStackNavigator<ParamList>()
 const Drawer = createDrawerNavigator<ParamList>()

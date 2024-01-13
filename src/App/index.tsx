@@ -6,7 +6,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage"
 import { Sprite, STORAGE_KEY, useStore } from "../store"
 
 import Routes from "../routes"
-import Footer from "../components/Footer"
+import { Footer } from "../components"
 
 const App = () => {
   const { setSprite } = useStore()

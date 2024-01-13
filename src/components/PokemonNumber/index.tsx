@@ -4,7 +4,7 @@ type PokemonNumberProps = {
   number?: number
 }
 
-const PokemonNumber = ({ number }: PokemonNumberProps) => {
+export const PokemonNumber = ({ number }: PokemonNumberProps) => {
   let pokemonNumber = ""
 
   if (number) {
@@ -21,5 +21,3 @@ const PokemonNumber = ({ number }: PokemonNumberProps) => {
 
   return <S.Number>{pokemonNumber}</S.Number>
 }
-
-export default PokemonNumber

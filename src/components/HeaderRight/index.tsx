@@ -2,7 +2,7 @@ import { useStore } from "../../store"
 
 import * as S from "./styles"
 
-const HeaderRight = () => {
+export const HeaderRight = () => {
   const { sprite, toggleSprite } = useStore()
 
   return (
@@ -15,5 +15,3 @@ const HeaderRight = () => {
     />
   )
 }
-
-export default HeaderRight

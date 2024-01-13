@@ -9,7 +9,7 @@ type TypeDropdownProps = {
   type: string
 }
 
-const TypeDropdown = ({ type }: TypeDropdownProps) => {
+export const TypeDropdown = ({ type }: TypeDropdownProps) => {
   return (
     <S.Wrapper>
       <S.TypeItem>
@@ -25,5 +25,3 @@ const TypeDropdown = ({ type }: TypeDropdownProps) => {
     </S.Wrapper>
   )
 }
-
-export default TypeDropdown

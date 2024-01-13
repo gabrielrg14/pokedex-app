@@ -2,7 +2,7 @@ import * as Linking from "expo-linking"
 
 import * as S from "./styles"
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <S.Wrapper>
       <S.Text>
@@ -17,5 +17,3 @@ const Footer = () => {
     </S.Wrapper>
   )
 }
-
-export default Footer

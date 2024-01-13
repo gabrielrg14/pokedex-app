@@ -1,10 +1,11 @@
 import { render } from "@testing-library/react-native"
+import { typeMocks } from "../../test/mocks"
 
-import BadgeType from "."
+import { BadgeType } from "."
 
 describe("<BadgeType />", () => {
   it("should render the grass icon and text with the correct colors", () => {
-    const { getByTestId, getByText } = render(<BadgeType type="grass" />)
+    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.grass.name} />)
 
     const gradientView = getByTestId(/gradientView/i)
 
@@ -15,7 +16,7 @@ describe("<BadgeType />", () => {
   })
 
   it("should render the fire icon and text with the correct colors", () => {
-    const { getByTestId, getByText } = render(<BadgeType type="fire" />)
+    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.fire.name} />)
 
     const gradientView = getByTestId(/gradientView/i)
 
@@ -26,7 +27,7 @@ describe("<BadgeType />", () => {
   })
 
   it("should render the water icon and text with the correct colors", () => {
-    const { getByTestId, getByText } = render(<BadgeType type="water" />)
+    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.water.name} />)
 
     const gradientView = getByTestId(/gradientView/i)
 

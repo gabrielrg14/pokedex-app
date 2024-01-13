@@ -1,19 +1,22 @@
 import { render } from "@testing-library/react-native"
+import { typeMocks } from "../../test/mocks"
 
-import StatBar from "."
+import { StatBar } from "."
 
 describe("<StatBar />", () => {
   it("should render the parentBar and childBar views", () => {
-    const { getByTestId } = render(<StatBar type="normal" stat="hp" baseStat={255} />)
+    const { getByTestId } = render(
+      <StatBar type={typeMocks.normal.name} stat="hp" baseStat={255} />
+    )
 
-    expect(getByTestId("parentBar")).toBeOnTheScreen()
-    expect(getByTestId("childBar")).toBeOnTheScreen()
+    expect(getByTestId(/parentBar/i)).toBeOnTheScreen()
+    expect(getByTestId(/childBar/i)).toBeOnTheScreen()
   })
 
   it("should render the hp status childBar of a flying type with the correct props, color and width", () => {
-    const { getByTestId } = render(<StatBar type="flying" stat="hp" baseStat={95} />)
+    const { getByTestId } = render(<StatBar type={typeMocks.flying.name} stat="hp" baseStat={95} />)
 
-    const childBar = getByTestId("childBar")
+    const childBar = getByTestId(/childBar/i)
 
     expect(childBar).toHaveProp("completed", 37.254901960784316)
     expect(childBar).toHaveProp("bgColor", "#92AADE")
@@ -21,9 +24,11 @@ describe("<StatBar />", () => {
   })
 
   it("should render the attack status childBar of a psychic type with the correct props, color and width", () => {
-    const { getByTestId } = render(<StatBar type="psychic" stat="attack" baseStat={50} />)
+    const { getByTestId } = render(
+      <StatBar type={typeMocks.psychic.name} stat="attack" baseStat={50} />
+    )
 
-    const childBar = getByTestId("childBar")
+    const childBar = getByTestId(/childBar/i)
 
     expect(childBar).toHaveProp("completed", 26.31578947368421)
     expect(childBar).toHaveProp("bgColor", "#F97176")
@@ -31,9 +36,11 @@ describe("<StatBar />", () => {
   })
 
   it("should render the defense status childBar of a bug type with the correct props, color and width", () => {
-    const { getByTestId } = render(<StatBar type="bug" stat="defense" baseStat={230} />)
+    const { getByTestId } = render(
+      <StatBar type={typeMocks.bug.name} stat="defense" baseStat={230} />
+    )
 
-    const childBar = getByTestId("childBar")
+    const childBar = getByTestId(/childBar/i)
 
     expect(childBar).toHaveProp("completed", 92)
     expect(childBar).toHaveProp("bgColor", "#90C12C")
@@ -41,9 +48,11 @@ describe("<StatBar />", () => {
   })
 
   it("should render the special-attack status childBar of a rock type with the correct props, color and width", () => {
-    const { getByTestId } = render(<StatBar type="rock" stat="special-attack" baseStat={95} />)
+    const { getByTestId } = render(
+      <StatBar type={typeMocks.rock.name} stat="special-attack" baseStat={95} />
+    )
 
-    const childBar = getByTestId("childBar")
+    const childBar = getByTestId(/childBar/i)
 
     expect(childBar).toHaveProp("completed", 48.96907216494845)
     expect(childBar).toHaveProp("bgColor", "#C7B78B")
@@ -51,9 +60,11 @@ describe("<StatBar />", () => {
   })
 
   it("should render the special-defense status childBar of a ghost type with the correct props, color and width", () => {
-    const { getByTestId } = render(<StatBar type="ghost" stat="special-defense" baseStat={75} />)
+    const { getByTestId } = render(
+      <StatBar type={typeMocks.ghost.name} stat="special-defense" baseStat={75} />
+    )
 
-    const childBar = getByTestId("childBar")
+    const childBar = getByTestId(/childBar/i)
 
     expect(childBar).toHaveProp("completed", 30)
     expect(childBar).toHaveProp("bgColor", "#5269AC")
@@ -61,9 +72,11 @@ describe("<StatBar />", () => {
   })
 
   it("should render the speed status childBar of a dragon type with the correct props, color and width", () => {
-    const { getByTestId } = render(<StatBar type="dragon" stat="speed" baseStat={80} />)
+    const { getByTestId } = render(
+      <StatBar type={typeMocks.dragon.name} stat="speed" baseStat={80} />
+    )
 
-    const childBar = getByTestId("childBar")
+    const childBar = getByTestId(/childBar/i)
 
     expect(childBar).toHaveProp("completed", 40)
     expect(childBar).toHaveProp("bgColor", "#096DC4")

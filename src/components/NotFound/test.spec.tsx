@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react-native"
 
-import NotFound from "."
+import { NotFound } from "."
 
 describe("<NotFound />", () => {
   it("should render all texts", () => {

@@ -3,12 +3,11 @@ import { useNavigation } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
 
 import { ParamList, Pokemon } from "../../@types"
+import { PokemonNumber } from "../PokemonNumber"
+import { RowTypes } from "../RowTypes"
 import { PokedexService } from "../../services"
-import { useStore } from "../../store"
 import { formatPokemonName } from "../../utils"
-
-import PokemonNumber from "../PokemonNumber"
-import RowTypes from "../RowTypes"
+import { useStore } from "../../store"
 
 import * as S from "./styles"
 
@@ -16,13 +15,13 @@ type CardProps = {
   pokemon: Pokemon
 }
 
-const Card = ({ pokemon }: CardProps) => {
+export const Card = ({ pokemon }: CardProps) => {
   const [pokemonData, setPokemonData] = useState({} as Pokemon)
   const { sprite } = useStore()
   const navigation = useNavigation<StackNavigationProp<ParamList, "Pokedex">>()
 
-  const getPokemonData = useCallback(async () => {
-    await PokedexService.getPokemonByQuery(pokemon?.name).then(({ data }) => setPokemonData(data))
+  const getPokemonData = useCallback(() => {
+    PokedexService.getPokemonByQuery(pokemon?.name).then((data) => setPokemonData(data))
   }, [pokemon])
 
   useEffect(() => {
@@ -54,5 +53,3 @@ const Card = ({ pokemon }: CardProps) => {
     </S.CardLink>
   )
 }
-
-export default Card

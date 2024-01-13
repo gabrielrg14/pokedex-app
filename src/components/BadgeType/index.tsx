@@ -8,7 +8,7 @@ type BadgeTypeProps = {
   type: string
 }
 
-const BadgeType = ({ type }: BadgeTypeProps) => {
+export const BadgeType = ({ type }: BadgeTypeProps) => {
   const typeProps = getPropsByPokemonType(type)
 
   return (
@@ -26,5 +26,3 @@ const BadgeType = ({ type }: BadgeTypeProps) => {
     </S.Wrapper>
   )
 }
-
-export default BadgeType

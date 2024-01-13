@@ -1,7 +1,5 @@
 import * as S from "./styles"
 
-const Header = () => {
-  return <S.PokedexImage testID="pokedexImage" source={require("../../../assets/pokedex.png")} />
-}
-
-export default Header
+export const Header = () => (
+  <S.PokedexImage testID="pokedexImage" source={require("../../../assets/pokedex.png")} />
+)

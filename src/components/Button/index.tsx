@@ -6,12 +6,10 @@ type ButtonProps = {
   text: string
 }
 
-const Button = ({ text, ...rest }: TouchableOpacityProps & ButtonProps) => {
+export const Button = ({ text, ...rest }: TouchableOpacityProps & ButtonProps) => {
   return (
     <S.Button accessibilityRole="button" {...rest}>
       <S.Text>{text}</S.Text>
     </S.Button>
   )
 }
-
-export default Button

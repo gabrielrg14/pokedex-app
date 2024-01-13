@@ -3,67 +3,46 @@ import { StackScreenProps } from "@react-navigation/stack"
 import { SvgCss } from "react-native-svg"
 import RNPickerSelect from "react-native-picker-select"
 
-import { ParamList, Pokemon } from "../../@types"
+import { ParamList, Pokemon, Type } from "../../@types"
+import { TypeDropdown, Card, Button } from "../../components"
 import { PokedexService } from "../../services"
 import { getPropsByPokemonType } from "../../utils"
-
-import TypeDropdown from "../../components/TypeDropdown"
-import Card from "../../components/Card"
-import Button from "../../components/Button"
 
 import * as S from "./styles"
 
 const LIMIT = 12
 
-type PokemonType = {
-  name: string
-  url: string
-}
-
 export const Pokedex = ({}: StackScreenProps<ParamList, "Pokedex">) => {
   const prevSearchRef = useRef("")
   const [search, setSearch] = useState("")
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([])
-  const [types, setTypes] = useState<PokemonType[]>([])
+  const [types, setTypes] = useState<Type[]>([])
   const [selectedType, setSelectedType] = useState("all")
   const [pokemonLimit, setPokemonLimit] = useState(LIMIT)
 
   useEffect(() => {
-    PokedexService.getPokemonsWithPagination(LIMIT).then(({ data }) => setPokemonList(data.results))
-
-    PokedexService.getAllTypes().then(({ data }) => {
-      data.results.unshift({ name: "all", url: "" })
-
-      // Remove types that do not have pokémon coming from the API
-      const typesToRemove = ["unknown", "shadow"]
-      const typesFiltered = data.results.filter(
-        (type: { name: string }) => !typesToRemove.includes(type.name)
-      )
-
-      setTypes(typesFiltered) // Adds type "all" to be one of the filterable options
-    })
+    PokedexService.getPokemonsWithPagination(LIMIT).then((data) => setPokemonList(data))
+    PokedexService.getAllTypes().then((data) => setTypes(data))
   }, [])
 
   const loadPokemons = useCallback(
     async (query: string | null, type: string | null = null) => {
       if (query === "" || type === "all") {
-        await PokedexService.getPokemonsWithPagination(pokemonLimit).then(({ data }) =>
-          setPokemonList([...data.results])
+        await PokedexService.getPokemonsWithPagination(pokemonLimit).then((data) =>
+          setPokemonList([...data])
         )
       } else if (query !== null) {
         prevSearchRef.current = query
         await PokedexService.getPokemonByQuery(query.replace(/ /g, "-").toLowerCase())
-          .then(({ data }) => setPokemonList([data]))
+          .then((data) => setPokemonList([data]))
           .catch(() => setPokemonList([]))
       } else if (query === null && type === null) {
-        await PokedexService.getPokemonsWithPagination(LIMIT, pokemonLimit).then(({ data }) => {
-          setPokemonList((prevPokemonList) => [...prevPokemonList, ...data.results])
+        await PokedexService.getPokemonsWithPagination(LIMIT, pokemonLimit).then((data) => {
+          setPokemonList((prevPokemonList) => [...prevPokemonList, ...data])
           setPokemonLimit(pokemonLimit + LIMIT)
         })
       } else if (type !== null) {
-        await PokedexService.getPokemonsByType(type).then(({ data }) =>
-          setPokemonList([...data.pokemon.map((pokemon: { pokemon: Pokemon }) => pokemon.pokemon)])
-        )
+        await PokedexService.getPokemonsByType(type).then((data) => setPokemonList([...data]))
       }
     },
     [pokemonLimit]

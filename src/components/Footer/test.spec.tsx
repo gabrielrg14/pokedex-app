@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react-native"
 import * as Linking from "expo-linking"
 
-import Footer from "."
+import { Footer } from "."
 
 describe("<Footer />", () => {
   it("should render the powered by text and the link to the PokéAPI", () => {

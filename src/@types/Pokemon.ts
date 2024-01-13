@@ -1,4 +1,4 @@
-export interface Sprites {
+export type Sprites = {
   front_default: string
   front_shiny: string
   other: {
@@ -9,21 +9,23 @@ export interface Sprites {
   }
 }
 
-export interface Type {
-  type: {
-    name: string
-    url: string
-  }
+export type Type = {
+  name: string
+  url: string
 }
 
-export interface Ability {
+export type PokemonType = {
+  type: Type
+}
+
+export type Ability = {
   ability: {
     name: string
     url: string
   }
 }
 
-export interface Stat {
+export type Stat = {
   base_stat: number
   stat: {
     name: string
@@ -31,14 +33,14 @@ export interface Stat {
   }
 }
 
-export interface Pokemon {
+export type Pokemon = {
   id: number
   name: string
   url: string
   sprites: Sprites
   height: number
   weight: number
-  types: Type[]
+  types: PokemonType[]
   abilities: Ability[]
   stats: Stat[]
 }

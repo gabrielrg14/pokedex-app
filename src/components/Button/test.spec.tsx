@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react-native"
 
-import Button from "."
+import { Button } from "."
 
 describe("<Button />", () => {
   it("should render the button and the passed text", () => {
