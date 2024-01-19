@@ -12,10 +12,10 @@ describe("<Card />", () => {
     expect(getByText(/venusaur/i)).toBeOnTheScreen()
   })
 
-  it("should render the button with an accessible name and the name of the pokemon", () => {
-    const { getByRole } = render(<Card pokemon={pokemonMocks.venusaur} />)
+  it("should render the button with an accessible name and the name of the pokemon", async () => {
+    const { findByRole } = render(<Card pokemon={pokemonMocks.venusaur} />)
 
-    const button = getByRole("button", { name: /venusaur/i })
+    const button = await findByRole("button", { name: /venusaur/i })
 
     expect(button).toBeOnTheScreen()
     expect(button).toHaveAccessibleName(/venusaur/i)

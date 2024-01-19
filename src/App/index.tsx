@@ -2,8 +2,9 @@ import { useEffect } from "react"
 import { NavigationContainer } from "@react-navigation/native"
 import { StatusBar } from "expo-status-bar"
 
+import { Sprite, useStore } from "../store"
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import { Sprite, STORAGE_KEY, useStore } from "../store"
+import { STORAGE_KEY } from "../common"
 
 import Routes from "../routes"
 import { Footer } from "../components"

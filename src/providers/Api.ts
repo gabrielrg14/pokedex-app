@@ -1,5 +1,4 @@
 import axios from "axios"
+import { API_URL } from "../common"
 
-export const baseURL = "https://pokeapi.co/api/v2"
-
-export const Api = axios.create({ baseURL })
+export const Api = axios.create({ baseURL: API_URL })
