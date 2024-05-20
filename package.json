@@ -1,7 +1,27 @@
 {
   "name": "pokedex-app",
   "version": "1.0.0",
+  "private": true,
   "main": "index.ts",
+  "description": "Pokédex App that consumes the PokéAPI to display information on all existing Pokémon.",
+  "author": "Gabriel Rapucci Gonzalez <gabrielrapuccigonzalez14@hotmail.com> (https://gabrielrapucci.com.br)",
+  "homepage": "https://github.com/gabrielrg14/pokedex-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrielrg14/pokedex-app"
+  },
+  "bugs": {
+    "url": "https://github.com/gabrielrg14/pokedex-app/issues"
+  },
+  "keywords": [
+    "react-native",
+    "pokédex",
+    "pokédex-app",
+    "pokéAPI",
+    "front-end",
+    "portfolio"
+  ],
+  "license": "MIT",
   "scripts": {
     "start": "expo start",
     "test": "jest",
@@ -55,6 +75,5 @@
     "prettier": "^3.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.2"
-  },
-  "private": true
+  }
 }

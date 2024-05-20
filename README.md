@@ -14,3 +14,4 @@
 - [Jest](https://jestjs.io/)
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
 - [Mock Service Worker](https://mswjs.io/)
+- [GitHub Actions](https://github.com/features/actions/)
