@@ -8,11 +8,11 @@ import { useStore } from "../../store"
 import * as S from "./styles"
 
 export const Pokemon = ({ route }: StackScreenProps<ParamList, "Pokemon">) => {
+  const { sprite } = useStore()
+
   if (!route.params) return <NotFound />
 
   const pokemon: IPokemon = route.params
-
-  const { sprite } = useStore()
 
   let background = getPropsByPokemonType(pokemon.types[0].type.name).background
   if (pokemon.types.length >= 2) {

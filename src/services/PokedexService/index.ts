@@ -18,9 +18,7 @@ const getAllTypes = async (): Promise<Type[]> => {
 
   // Remove types that do not have pokémon coming from the API
   const typesToRemove = ["unknown", "shadow"]
-  const typesFiltered = data.results.filter(
-    (type: Type) => !typesToRemove.includes(type.name)
-  )
+  const typesFiltered = data.results.filter((type: Type) => !typesToRemove.includes(type.name))
 
   return typesFiltered
 }

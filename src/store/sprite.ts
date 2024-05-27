@@ -10,8 +10,7 @@ type SpriteStore = {
   toggleSprite: () => void
 }
 
-const setAsyncStorage = async (sprite: Sprite) =>
-  await AsyncStorage.setItem(STORAGE_KEY, sprite)
+const setAsyncStorage = async (sprite: Sprite) => await AsyncStorage.setItem(STORAGE_KEY, sprite)
 
 export const useStore = create<SpriteStore>()((set) => ({
   sprite: "front_default",
