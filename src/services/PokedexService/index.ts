@@ -2,8 +2,18 @@ import { Api } from "../../providers"
 import { Pokemon, Type } from "../../@types"
 
 const getPokemonByQuery = async (query: string): Promise<Pokemon> => {
-  const { data } = await Api.get(`/pokemon/${query}`)
-  return data
+  const { data: pokemon } = await Api.get<Pokemon>(`/pokemon/${query}`)
+
+  // Removes abilities that have the same name
+  const abilityNames = pokemon.abilities.map((item) => item.ability.name)
+  const abilitiesFiltered = abilityNames.filter(
+    (item, index) => abilityNames.indexOf(item) === index
+  )
+  pokemon.abilities = pokemon.abilities.filter(
+    (item, index) => abilitiesFiltered.indexOf(item.ability.name) === index
+  )
+
+  return pokemon
 }
 
 const getPokemonsWithPagination = async (limit: number, offset?: number): Promise<Pokemon[]> => {
@@ -17,7 +27,7 @@ const getAllTypes = async (): Promise<Type[]> => {
   data.results.unshift({ name: "all", url: "" }) // Adds type "all" to be one of the filterable options
 
   // Remove types that do not have pokémon coming from the API
-  const typesToRemove = ["unknown", "shadow"]
+  const typesToRemove = ["unknown", "stellar"]
   const typesFiltered = data.results.filter((type: Type) => !typesToRemove.includes(type.name))
 
   return typesFiltered
