@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { StackNavigationProp } from "@react-navigation/stack"
 
-import { ParamList, Pokemon } from "../../@types"
+import { ParamList, IPokemon } from "../../@types"
 import { PokemonNumber } from "../PokemonNumber"
 import { RowTypes } from "../RowTypes"
 import { PokedexService } from "../../services"
@@ -12,11 +12,11 @@ import { useStore } from "../../store"
 import * as S from "./styles"
 
 type CardProps = {
-  pokemon: Pokemon
+  pokemon: IPokemon
 }
 
 export const Card = ({ pokemon }: CardProps) => {
-  const [pokemonData, setPokemonData] = useState({} as Pokemon)
+  const [pokemonData, setPokemonData] = useState({} as IPokemon)
   const { sprite } = useStore()
   const navigation = useNavigation<StackNavigationProp<ParamList, "Pokedex">>()
 

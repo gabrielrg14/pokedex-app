@@ -1,4 +1,4 @@
-export type Sprites = {
+export type ISprites = {
   front_default: string
   front_shiny: string
   other: {
@@ -9,23 +9,23 @@ export type Sprites = {
   }
 }
 
-export type Type = {
+export type IType = {
   name: string
   url: string
 }
 
-export type PokemonType = {
-  type: Type
+export type IPokemonType = {
+  type: IType
 }
 
-export type Ability = {
+export type IAbility = {
   ability: {
     name: string
     url: string
   }
 }
 
-export type Stat = {
+export type IStat = {
   base_stat: number
   stat: {
     name: string
@@ -33,14 +33,14 @@ export type Stat = {
   }
 }
 
-export type Pokemon = {
+export type IPokemon = {
   id: number
   name: string
   url: string
-  sprites: Sprites
+  sprites: ISprites
   height: number
   weight: number
-  types: PokemonType[]
-  abilities: Ability[]
-  stats: Stat[]
+  types: IPokemonType[]
+  abilities: IAbility[]
+  stats: IStat[]
 }

@@ -3,7 +3,7 @@ import { StackScreenProps } from "@react-navigation/stack"
 import { SvgCss } from "react-native-svg"
 import RNPickerSelect from "react-native-picker-select"
 
-import { ParamList, Pokemon, Type } from "../../@types"
+import { ParamList, IPokemon, IType } from "../../@types"
 import { TypeDropdown, Card, Button } from "../../components"
 import { PokedexService } from "../../services"
 import { getPropsByPokemonType } from "../../utils"
@@ -15,8 +15,8 @@ const LIMIT = 12
 export const Pokedex = ({}: StackScreenProps<ParamList, "Pokedex">) => {
   const prevSearchRef = useRef("")
   const [search, setSearch] = useState("")
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>([])
-  const [types, setTypes] = useState<Type[]>([])
+  const [pokemonList, setPokemonList] = useState<IPokemon[]>([])
+  const [types, setTypes] = useState<IType[]>([])
   const [selectedType, setSelectedType] = useState("all")
   const [pokemonLimit, setPokemonLimit] = useState(LIMIT)
 

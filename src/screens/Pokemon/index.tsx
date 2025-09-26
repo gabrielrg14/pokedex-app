@@ -1,6 +1,6 @@
 import { StackScreenProps } from "@react-navigation/stack"
 
-import { ParamList, Pokemon as IPokemon } from "../../@types"
+import { ParamList, IPokemon } from "../../@types"
 import { NotFound, PokemonNumber, RowTypes, StatBar } from "../../components"
 import { getPropsByPokemonType, formatPokemonName } from "../../utils"
 import { useStore } from "../../store"

@@ -1,10 +1,10 @@
-import { PokemonType } from "../../@types"
+import { IPokemonType } from "../../@types"
 import { BadgeType } from "../BadgeType"
 
 import * as S from "./styles"
 
 type RowTypesProps = {
-  types?: PokemonType[]
+  types?: IPokemonType[]
 }
 
 export const RowTypes = ({ types }: RowTypesProps) => {
