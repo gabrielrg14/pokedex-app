@@ -5,7 +5,7 @@ import { TypeDropdown } from "."
 
 describe("<TypeDropdown />", () => {
   it("should render the arrow icon and be visible", async () => {
-    const { findByTestId } = render(<TypeDropdown type={typeMocks.normal.name} />)
+    const { findByTestId } = render(<TypeDropdown type={typeMocks.types.normal.name} />)
 
     const arrowIcon = await findByTestId(/arrowIcon/i)
 
@@ -14,7 +14,7 @@ describe("<TypeDropdown />", () => {
   })
 
   it("should render dark icon and text with correct typeColor prop and color style", () => {
-    const { getByText, getByTestId } = render(<TypeDropdown type={typeMocks.dark.name} />)
+    const { getByText, getByTestId } = render(<TypeDropdown type={typeMocks.types.dark.name} />)
 
     const darkText = getByText(/dark/i)
 
@@ -25,7 +25,7 @@ describe("<TypeDropdown />", () => {
   })
 
   it("should render steel icon and text with correct typeColor prop and color style", () => {
-    const { getByText, getByTestId } = render(<TypeDropdown type={typeMocks.steel.name} />)
+    const { getByText, getByTestId } = render(<TypeDropdown type={typeMocks.types.steel.name} />)
 
     const steelText = getByText(/steel/i)
 
@@ -36,7 +36,7 @@ describe("<TypeDropdown />", () => {
   })
 
   it("should render fairy icon and text with correct typeColor prop and color style", () => {
-    const { getByText, getByTestId } = render(<TypeDropdown type={typeMocks.fairy.name} />)
+    const { getByText, getByTestId } = render(<TypeDropdown type={typeMocks.types.fairy.name} />)
 
     const fairyText = getByText(/fairy/i)
 

@@ -5,7 +5,7 @@ import { BadgeType } from "."
 
 describe("<BadgeType />", () => {
   it("should render the grass icon and text with the correct colors", () => {
-    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.grass.name} />)
+    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.types.grass.name} />)
 
     const gradientView = getByTestId(/gradientView/i)
 
@@ -16,7 +16,7 @@ describe("<BadgeType />", () => {
   })
 
   it("should render the fire icon and text with the correct colors", () => {
-    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.fire.name} />)
+    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.types.fire.name} />)
 
     const gradientView = getByTestId(/gradientView/i)
 
@@ -27,7 +27,7 @@ describe("<BadgeType />", () => {
   })
 
   it("should render the water icon and text with the correct colors", () => {
-    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.water.name} />)
+    const { getByTestId, getByText } = render(<BadgeType type={typeMocks.types.water.name} />)
 
     const gradientView = getByTestId(/gradientView/i)
 

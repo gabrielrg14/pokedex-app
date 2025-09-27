@@ -6,7 +6,7 @@ import { StatBar } from "."
 describe("<StatBar />", () => {
   it("should render the parentBar and childBar views", () => {
     const { getByTestId } = render(
-      <StatBar type={typeMocks.normal.name} stat="hp" baseStat={255} />
+      <StatBar type={typeMocks.types.normal.name} stat="hp" baseStat={255} />
     )
 
     expect(getByTestId(/parentBar/i)).toBeOnTheScreen()
@@ -14,7 +14,9 @@ describe("<StatBar />", () => {
   })
 
   it("should render the hp status childBar of a flying type with the correct props, color and width", () => {
-    const { getByTestId } = render(<StatBar type={typeMocks.flying.name} stat="hp" baseStat={95} />)
+    const { getByTestId } = render(
+      <StatBar type={typeMocks.types.flying.name} stat="hp" baseStat={95} />
+    )
 
     const childBar = getByTestId(/childBar/i)
 
@@ -25,7 +27,7 @@ describe("<StatBar />", () => {
 
   it("should render the attack status childBar of a psychic type with the correct props, color and width", () => {
     const { getByTestId } = render(
-      <StatBar type={typeMocks.psychic.name} stat="attack" baseStat={50} />
+      <StatBar type={typeMocks.types.psychic.name} stat="attack" baseStat={50} />
     )
 
     const childBar = getByTestId(/childBar/i)
@@ -37,7 +39,7 @@ describe("<StatBar />", () => {
 
   it("should render the defense status childBar of a bug type with the correct props, color and width", () => {
     const { getByTestId } = render(
-      <StatBar type={typeMocks.bug.name} stat="defense" baseStat={230} />
+      <StatBar type={typeMocks.types.bug.name} stat="defense" baseStat={230} />
     )
 
     const childBar = getByTestId(/childBar/i)
@@ -49,7 +51,7 @@ describe("<StatBar />", () => {
 
   it("should render the special-attack status childBar of a rock type with the correct props, color and width", () => {
     const { getByTestId } = render(
-      <StatBar type={typeMocks.rock.name} stat="special-attack" baseStat={95} />
+      <StatBar type={typeMocks.types.rock.name} stat="special-attack" baseStat={95} />
     )
 
     const childBar = getByTestId(/childBar/i)
@@ -61,7 +63,7 @@ describe("<StatBar />", () => {
 
   it("should render the special-defense status childBar of a ghost type with the correct props, color and width", () => {
     const { getByTestId } = render(
-      <StatBar type={typeMocks.ghost.name} stat="special-defense" baseStat={75} />
+      <StatBar type={typeMocks.types.ghost.name} stat="special-defense" baseStat={75} />
     )
 
     const childBar = getByTestId(/childBar/i)
@@ -73,7 +75,7 @@ describe("<StatBar />", () => {
 
   it("should render the speed status childBar of a dragon type with the correct props, color and width", () => {
     const { getByTestId } = render(
-      <StatBar type={typeMocks.dragon.name} stat="speed" baseStat={80} />
+      <StatBar type={typeMocks.types.dragon.name} stat="speed" baseStat={80} />
     )
 
     const childBar = getByTestId(/childBar/i)
